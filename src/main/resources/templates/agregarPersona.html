@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar persona</title>
+    <style>
+        body{
+            background-color: darkblue;
+            text-align: center;
+            color: white;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        input{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Agregar persona</h1>
+<form action="#" th:action="@{/agregarPersona}" th:object="${persona}" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}"  id="nombre"/>
+    <label for="apellido1">Apellido1</label>
+    <input type="text" th:field="*{apellido1}"  id="apellido1"/>
+    <br>
+    <label for="apellido2">Apellido2</label>
+    <input type="text" th:field="*{apellido2}"  id="apellido2"/>
+    <label for="telefono">Teléfono:</label>
+    <input type="text" th:field="*{telefono}"  id="telefono"/>
+    <br>
+    <br>
+    <label for="email">Email:</label>
+    <input type="text" th:field="*{email}"  id="email"/>
+    <input hidden="true" type="text" th:field="*{clienteReferencia}"  id="clienteReferencia"/>
+    <br>
+    <input type="submit" value="Añadir persona">
+</form>
+<div>
+    <a href="/">Volver a la página principal</a>
+</div>
+</body>
+</html>

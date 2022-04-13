@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Lab 5 by Jr</title>
+    <style>
+        body{
+            font-size: 18px;
+            background-color: darkblue;
+            color: white;
+        }
+        a{
+            color: white;
+        }
+        ul{
+            background-color: #6b65cd;
+            float: left;
+        }
+        #cards{
+            margin: 10px;
+            width: 100%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Lista de Clientes</h1>
+    <ul>
+        <div id="cards" th:each="cliente,status : ${cliente}">
+            <li>
+                <div>
+                    <div>
+                        <h4><span th:text="${'Razón social: '+cliente.razonSocial}">RAZON SOCIAL </span></h4>
+                        <p>
+                            <small>
+                                <i></i>
+                                <span th:text="${'Dirección: '+cliente.direccion}">DIRECCION</span>
+                            </small>
+                        </p>
+                        <p>
+                        <small>
+                            <i></i>
+                            <span th:text="${'Telefono: '+cliente.telefono}">TELEFONO</span>
+                        </small>
+                        </p>
+
+                    </div>
+                    <div class="tl-body">
+                        <p><span th:text="${'Cedula Jurídica: '+cliente.cedulaJuridica}">DATE OF BIRTH</span></p>
+                    </div>
+                </div>
+                <a th:href="@{/editarCliente/{id}(id=${cliente.id})}">Editar</a>
+                <br>
+                <a th:href="@{/agregarPersona/{id}(id=${cliente.id})}">Agregar Persona</a>
+                <br>
+                <a th:href="@{/verPersonas/{id}(id=${cliente.id})}">Ver Personas</a>
+            </li>
+        </div>
+    </ul>
+</div>
+<div >
+    <a style="margin-left: 200px;" href="/">Volver a la página principal</a>
+</div>
+</body>
+</html>

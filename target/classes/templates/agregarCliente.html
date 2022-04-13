@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar consultor</title>
+    <style>
+        body{
+            background-color: darkblue;
+            text-align: center;
+            color: white;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        input{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Agregar cliente</h1>
+<form action="#" th:action="@{/agregarCliente}" th:object="${cliente}" method="post">
+    <label for="razonSocial">Razón Social</label>
+    <input type="text" th:field="*{razonSocial}"  id="razonSocial"/>
+    <label for="cedulaJuridica">Cedula Jurídica:</label>
+    <input type="text" th:field="*{cedulaJuridica}"  id="cedulaJuridica"/>
+    <br>
+    <label for="direccion">Direccion:</label>
+    <input type="text" th:field="*{direccion}"  id="direccion"/>
+    <label for="telefono">Teléfono:</label>
+    <input type="text" th:field="*{telefono}"  id="telefono"/>
+    <br>
+    <input type="submit" value="Añadir cliente">
+</form>
+<div>
+    <a href="/">Volver a la página principal</a>
+</div>
+</body>
+</html>

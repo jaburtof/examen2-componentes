@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Lista Trabajos</title>
+    <style>
+        body{
+            font-size: 18px;
+            background-color: darkblue;
+            color: white;
+        }
+        a{
+            color: white;
+        }
+        ul{
+            background-color: #6b65cd;
+            float: left;
+        }
+        #cards{
+            margin: 10px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        table, th, td {
+            padding: 10px;
+            border:1px solid white;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+    <h1>Lista de Trabajos</h1>
+    <table>
+        <tr>
+            <th>Auditoría a realizar</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+        </tr>
+        <tr th:each="trabajo,status : ${trabajo}">
+            <td th:text="${trabajo.auditoriaRealizar}"></td>
+            <td th:text="${trabajo.fecha}"></td>
+            <td th:text="${trabajo.clienteReferencia}"></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a href="/">Volver a la página principal</a>
+</div>
+</body>
+</html>

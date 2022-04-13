@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Lab 5 by Jr</title>
+    <style>
+        body{
+            font-size: 18px;
+            background-color: darkblue;
+            color: white;
+        }
+        a{
+            color: white;
+        }
+        ul{
+            background-color: #6b65cd;
+            float: left;
+        }
+        #cards{
+            margin: 10px;
+            width: 100%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Lista de Consultores</h1>
+    <ul>
+        <div id="cards" th:each="consultor,status : ${consultor}">
+            <li>
+                <div>
+                    <div>
+                        <h4><span th:text="${'Nombre Completo: '+consultor.nombre +' '+ consultor.apellido1 +' '+ consultor.apellido2}">NOMBRE </span></h4>
+                        <p>
+                            <small>
+                                <i></i>
+                                <span th:text="${'Residencia: '+consultor.direccion}">DIRECCION</span>
+                            </small>
+                        </p>
+                        <p>
+                        <small>
+                            <i></i>
+                            <span th:text="${'Telefono: '+consultor.telefono}">TELEFONO</span>
+                        </small>
+                        </p>
+                        <p>
+                            <small>
+                                <i></i>
+                                <span th:text="${'Email: '+consultor.email}">EMAIL</span>
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                <i></i>
+                                <span th:text="${'Disponibilidad de viaje: '+consultor.disponibilidadViaje}">DISPONIBILIDAD DE VIAJE</span>
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                <i></i>
+                                <span th:text="${'Especialidad: '+consultor.especialidad}">ESPECIALIDAD</span>
+                            </small>
+                        </p>
+                    </div>
+                    <div class="tl-body">
+                        <p><span th:text="${'Fecha de nacimiento: '+consultor.dateOfBirth}">DATE OF BIRTH</span></p>
+                    </div>
+
+                    <div class="tl-body">
+                        <p><span th:text="${'Estado: '+consultor.estado}">Estado</span></p>
+                    </div>
+                </div>
+                <a th:href="@{/editarConsultor/{id}(id=${consultor.id})}">Editar</a>
+
+                <form action="#" th:action="@{/estadoConsultor/{id}(id=${consultor.id})}"  method="post">
+                    <input type="submit" value="CambiarEstado">
+                </form>
+            </li>
+        </div>
+    </ul>
+</div>
+<div>
+    <a style="margin-left: 200px;" href="/">Volver a la página principal</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Trabajo</title>
+    <style>
+        body{
+            background-color: darkblue;
+            text-align: center;
+            color: white;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        input{
+            margin: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Agregar Trabajo</h1>
+    <form action="#" th:action="@{/agregarTrabajo}" th:object="${trabajo}" method="post">
+        <label for="auditoriaRealizar">Auditoría a realizar</label>
+        <input type="text" th:field="*{auditoriaRealizar}" id="auditoriaRealizar">
+        <label for="fecha">fecha</label>
+        <input type="date" th:field="*{fecha}" id="fecha">
+        <label>Cliente a visitar</label>
+
+        <select th:field="*{clienteReferencia}">
+            <option th:each="cliente,status : ${cliente}" th:value="${cliente.razonSocial}" th:text="${cliente.razonSocial}" ></option>
+        </select>
+
+
+        <input type="submit" value="Registrar">
+    </form>
+    <div>
+        <a href="/">Volver a la página principal</a>
+    </div>
+</body>
+</html>

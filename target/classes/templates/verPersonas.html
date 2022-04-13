@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Lab 5 by Jr</title>
+    <style>
+        body{
+            font-size: 18px;
+            background-color: darkblue;
+            color: white;
+        }
+        a{
+            color: white;
+        }
+        ul{
+            background-color: #6b65cd;
+            float: left;
+        }
+        #cards{
+            margin: 10px;
+            width: 100%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Lista de personas</h1>
+    <ul>
+        <div id="cards" th:each="persona,status : ${persona}">
+            <li>
+                <div>
+                    <div>
+                        <h4><span th:text="${'Nombre Completo: '+persona.nombre +' '+ persona.apellido1 +' '+ persona.apellido2}">NOMBRE </span></h4>
+                        <p>
+                        <small>
+                            <i></i>
+                            <span th:text="${'Telefono: '+persona.telefono}">TELEFONO</span>
+                        </small>
+                        </p>
+                        <p>
+                            <small>
+                                <i></i>
+                                <span th:text="${'Email: '+persona.email}">EMAIL</span>
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                <i></i>
+                                <span th:text="${'cliente: '+persona.clienteReferencia}">EMAIL</span>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+                <a th:href="@{/editarPersona/{id}(id=${persona.id})}">Editar</a>
+                <a th:href="@{/borrarPersona/{id}(id=${persona.id})}">Borrar</a>
+
+            </li>
+        </div>
+    </ul>
+</div>
+<div>
+    <a href="/">Volver a la página principal</a>
+</div>
+</body>
+</html>
